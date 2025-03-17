@@ -70,7 +70,10 @@ const othersItems: NavItem[] = [
   {
     icon: <Settings size={20} />,
     name: "Settings",
-    path: "/dashboard/settings"
+    subItems: [
+      { name: "Account Settings", path: "/settings/account" },
+      { name: "Privacy", path: "/settings/privacy" }
+    ]
   },
   {
     icon: <LogOut size={20} color="red" />,
@@ -95,8 +98,8 @@ const AppSidebar: React.FC = () => {
               onClick={() => handleSubmenuToggle(index, menuType)}
               className={`relative flex items-center w-full gap-3 px-3 py-2 font-medium rounded-lg text-sm group  ${
                 openSubmenu?.type === menuType && openSubmenu?.index === index
-                  ? "menu-item-active bg-piper-blue/[0.12] text-piper-blue  dark:text-piper-cyan dark:bg-piper-cyan/[0.12]"
-                  : "menu-item-inactive text-gray-700 hover:bg-gray-100 group-hover:text-gray-700 dark:text-gray-300 dark:hover:bg-white/5 dark:hover:text-gray-300"
+                  ? "menu-item-active bg-piper-blue/[0.12] text-white dark:text-white dark:bg-piper-cyan/[0.12]"
+                  : "menu-item-inactive text-white hover:bg-gray-100 hover:text-white group-hover:text-white dark:text-white dark:hover:bg-white/5 dark:hover:text-white"
               } cursor-pointer ${
                 !isExpanded && !isHovered
                   ? "lg:justify-center"
@@ -106,8 +109,8 @@ const AppSidebar: React.FC = () => {
               <span
                 className={` ${
                   openSubmenu?.type === menuType && openSubmenu?.index === index
-                    ? "menu-item-icon-active text-brand-500 dark:text-brand-400"
-                    : "menu-item-icon-inactive text-gray-500 group-hover:text-gray-700 dark:text-gray-400 dark:group-hover:text-gray-300"
+                    ? "menu-item-icon-active text-white dark:text-white"
+                    : "menu-item-icon-inactive text-white group-hover:text-white dark:text-white dark:group-hover:text-white"
                 }`}
               >
                 {renderIcon(nav.icon)}
@@ -117,10 +120,10 @@ const AppSidebar: React.FC = () => {
               )}
               {(isExpanded || isHovered || isMobileOpen) && (
                 <ChevronDown
-                  className={`ml-auto w-5 h-5 transition-transform duration-200  ${
+                  className={`ml-auto w-5 h-5 transition-transform duration-200 text-white ${
                     openSubmenu?.type === menuType &&
                     openSubmenu?.index === index
-                      ? "rotate-180 text-piper-blue dark:text-piper-cyan"
+                      ? "rotate-180"
                       : ""
                   }`}
                   size={20}
@@ -133,8 +136,8 @@ const AppSidebar: React.FC = () => {
                 href={nav.path}
                 className={`menu-item relative flex items-center w-full gap-3 px-3 py-2 font-medium rounded-lg text-sm group ${
                   isActive(nav.path)
-                    ? "bg-piper-blue/[0.12] text-piper-blue dark:bg-piper-cyan/[0.12] dark:text-piper-cyan"
-                    : "text-gray-700 hover:bg-gray-50 hover:text-piper-blue dark:text-gray-300 hover:dark:text-piper-cyan hover:dark:bg-piper-darkblue/[0.12]"
+                    ? "bg-piper-blue/[0.12] text-white dark:bg-piper-cyan/[0.12] dark:text-white"
+                    : "text-white hover:bg-gray-50 hover:text-white dark:text-white hover:dark:text-white hover:dark:bg-piper-darkblue/[0.12]"
                 } ${
                   nav.name == "Signout" &&
                   "hover:bg-red-50/50 dark:hover:bg-red-500/30"
@@ -143,8 +146,8 @@ const AppSidebar: React.FC = () => {
                 <span
                   className={`${
                     isActive(nav.path)
-                      ? "menu-item-icon-active bg-piper-blue/[0.12] text-piper-blue dark:text-piper-cyan dark:bg-piper-cyan/[0.12]"
-                      : "menu-item-icon-inactive text-gray-500 group-hover:text-gray-700 dark:text-gray-400 dark:group-hover:text-gray-300"
+                      ? "menu-item-icon-active bg-piper-blue/[0.12] text-white dark:text-white dark:bg-piper-cyan/[0.12]"
+                      : "menu-item-icon-inactive text-white group-hover:text-white dark:text-white dark:group-hover:text-white"
                   }`}
                 >
                   {renderIcon(nav.icon)}
@@ -153,9 +156,9 @@ const AppSidebar: React.FC = () => {
                   <span
                     className={`menu-item-text ${
                       isActive(nav.path)
-                        ? "text-piper-blue dark:text-piper-cyan"
+                        ? "text-white dark:text-white"
                         : nav.name == "Signout"
-                        ? "text-[red] dark:text-[red]"
+                        ? "text-white dark:text-white"
                         : ""
                     }`}
                   >
@@ -183,10 +186,10 @@ const AppSidebar: React.FC = () => {
                   <li key={subItem.name}>
                     <Link
                       href={subItem.path}
-                      className={`menu-dropdown-item relative flex hover:text-piper-blue hover:bg-gray-50 dark:hover:text-piper-cyan dark:hover:bg-piper-darkblue/[0.12] items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium ${
+                      className={`menu-dropdown-item relative flex hover:text-white hover:bg-gray-50 dark:hover:text-white dark:hover:bg-piper-darkblue/[0.12] items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium ${
                         isActive(subItem.path)
-                          ? "menu-dropdown-item-active bg-piper-blue/[0.12] text-piper-blue dark:bg-piper-cyan/[0.12] dark:text-piper-cyan"
-                          : "menu-dropdown-item-inactive dark:text-piper-lightblue"
+                          ? "menu-dropdown-item-active bg-piper-blue/[0.12] text-white dark:bg-piper-cyan/[0.12] dark:text-white"
+                          : "menu-dropdown-item-inactive text-white dark:text-white"
                       }`}
                     >
                       {subItem.name}
@@ -266,12 +269,12 @@ const AppSidebar: React.FC = () => {
 
   return (
     <aside
-      className={`fixed mt-16 flex flex-col lg:mt-0 top-0 px-5 left-0 bg-white dark:bg-gray-900 dark:border-gray-800 text-gray-900 h-screen transition-all duration-300 ease-in-out z-50 border-r border-gray-200 
+      className={`fixed mt-16 flex flex-col lg:mt-0 top-0 px-5 left-0 bg-blue-800 dark:bg-gray-900 dark:border-gray-800 text-white h-screen transition-all duration-300 ease-in-out z-50 border-r border-gray-200 
         ${
           isExpanded || isMobileOpen
-            ? "w-[290px]"
+            ? "w-[230px]"
             : isHovered
-            ? "w-[290px]"
+            ? "w-[230px]"
             : "w-[90px]"
         }
         ${isMobileOpen ? "translate-x-0" : "-translate-x-full"}
@@ -286,17 +289,19 @@ const AppSidebar: React.FC = () => {
       >
         <Link href="/">
           {isExpanded || isHovered || isMobileOpen ? (
-            <>
-              <div className="flex items-center">
-                  <h1 className="text-gradient text-2xl">Vanguard</h1>
-              </div>
-            </>
+             <Image
+             src="/logo-full.svg"
+             alt="Logo"
+             width={140}
+             height={120}
+             priority
+           />
           ) : (
             <Image
-              src="/piper-mascot.svg"
+              src="/logo.svg"
               alt="Logo"
-              width={32}
-              height={32}
+              width={42}
+              height={42}
               priority
             />
           )}
@@ -307,7 +312,7 @@ const AppSidebar: React.FC = () => {
           <div className="flex flex-col gap-4">
             <div>
               <h2
-                className={`mb-4 text-xs uppercase flex leading-[20px] text-gray-400 ${
+                className={`mb-4 text-xs uppercase flex leading-[20px] text-white ${
                   !isExpanded && !isHovered
                     ? "lg:justify-center"
                     : "justify-start"
@@ -326,10 +331,10 @@ const AppSidebar: React.FC = () => {
       </div>
       
       {/* Others section fixed at bottom */}
-      <div className="mt-auto pb-6 pt-4 border-t border-gray-100 dark:border-gray-800">
+      <div className="mt-auto pb-6 pt-4 dark:border-gray-800">
         <div>
           <h2
-            className={`mb-4 text-xs uppercase flex leading-[20px] text-gray-400 ${
+            className={`mb-4 text-xs uppercase flex leading-[20px] text-white ${
               !isExpanded && !isHovered
                 ? "lg:justify-center"
                 : "justify-start"

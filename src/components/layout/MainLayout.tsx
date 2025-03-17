@@ -15,7 +15,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
   const mainContentMargin = isMobileOpen
     ? "ml-0"
     : isExpanded || isHovered
-    ? "lg:ml-[290px]"
+    ? "lg:ml-[230px]"
     : "lg:ml-[90px]";
 
   return (
