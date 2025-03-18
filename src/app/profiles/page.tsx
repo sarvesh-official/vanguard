@@ -72,7 +72,7 @@ export default function Home() {
                   </svg>
                 </div>
               </div>
-              <div className="flex justify-center">
+              <div className="flex justify-center gap-3">
               <Button variant="outline" size="sm" className="mr-2 bg-pri text-white hover:bg-pri/90 hover:text-white">
                 Profile Onboard
               </Button>
@@ -86,11 +86,9 @@ export default function Home() {
       <div className="w-full mt-6">
         {activeTab === "my-profile" &&
           <Card className="w-full">
-
-            
-            <CardContent className="p-6">
+            <CardContent className="px-0 py-0">
               <Table className="border-collapse">
-                <TableHeader>
+                <TableHeader className="text-xs">
                   <TableRow className="border-b text-black">
                     <TableHead className="border-r text-black font-bold text-left">
                       Name
@@ -118,7 +116,7 @@ export default function Home() {
                     </TableHead>
                   </TableRow>
                 </TableHeader>
-                <TableBody>
+                <TableBody className="text-xs">
                   <TableRow className="border-b">
                     <TableCell className="border-r font-medium">
                       BDC CUPS MONITORING
@@ -134,7 +132,7 @@ export default function Home() {
                     <TableCell className="border-r text-center">5</TableCell>
                     <TableCell className="border-r text-center">4</TableCell>
                     <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center">
+                    <TableCell className="text-center flex justify-center gap-4">
                       <Button variant="outline" size="sm" className="mr-2">
                         <EditIcon />
                       </Button>
@@ -158,7 +156,7 @@ export default function Home() {
                     <TableCell className="border-r text-center">5</TableCell>
                     <TableCell className="border-r text-center">4</TableCell>
                     <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center">
+                    <TableCell className="text-center flex justify-center gap-4">
                       <Button variant="outline" size="sm" className="mr-2">
                         <EditIcon />
                       </Button>
@@ -182,7 +180,7 @@ export default function Home() {
                     <TableCell className="border-r text-center">5</TableCell>
                     <TableCell className="border-r text-center">4</TableCell>
                     <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center">
+                    <TableCell className="text-center flex justify-center gap-4">
                       <Button variant="outline" size="sm" className="mr-2">
                         <EditIcon />
                       </Button>
@@ -206,7 +204,7 @@ export default function Home() {
                     <TableCell className="border-r text-center">5</TableCell>
                     <TableCell className="border-r text-center">4</TableCell>
                     <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center">
+                    <TableCell className="text-center flex justify-center gap-4">
                       <Button variant="outline" size="sm" className="mr-2">
                         <EditIcon />
                       </Button>
@@ -230,7 +228,7 @@ export default function Home() {
                     <TableCell className="border-r text-center">5</TableCell>
                     <TableCell className="border-r text-center">4</TableCell>
                     <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center">
+                    <TableCell className="text-center flex justify-center gap-4">
                       <Button variant="outline" size="sm" className="mr-2">
                         <EditIcon />
                       </Button>
@@ -254,7 +252,7 @@ export default function Home() {
                     <TableCell className="border-r text-center">5</TableCell>
                     <TableCell className="border-r text-center">4</TableCell>
                     <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center">
+                    <TableCell className="text-center flex justify-center gap-4">
                       <Button variant="outline" size="sm" className="mr-2">
                         <EditIcon />
                       </Button>
