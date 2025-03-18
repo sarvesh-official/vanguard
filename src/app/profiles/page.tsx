@@ -14,20 +14,32 @@ import {
   TableHeader,
   TableRow
 } from "@/components/ui/table";
-import { EditIcon, Filter, TrashIcon } from "lucide-react";
+import { EditIcon, Filter, Plus, SearchIcon, TrashIcon } from "lucide-react";
 import { useState } from "react";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState("my-profile");
+  const [searchQuery, setSearchQuery] = useState("");
+
+  // Sample data - in a real app, this would come from your API
+  const profiles = [
+    { id: 1, name: "BDC CUPS MONITORING", adGroup: "UG_0365_EMS_POC", createdBy: "Maharajan, Iyappan", createdById: "4943218", createdAt: "03/12/2025", createdTime: "09:16:19 PM", channels: 5, events: 4, rules: 2, status: "active" },
+    { id: 2, name: "BDC CUPS MONITORING", adGroup: "UG_0365_EMS_POC", createdBy: "Maharajan, Iyappan", createdById: "4943218", createdAt: "03/12/2025", createdTime: "09:16:19 PM", channels: 5, events: 4, rules: 2, status: "inactive" },
+    { id: 3, name: "BDC CUPS MONITORING", adGroup: "UG_0365_EMS_POC", createdBy: "Maharajan, Iyappan", createdById: "4943218", createdAt: "03/12/2025", createdTime: "09:16:19 PM", channels: 5, events: 4, rules: 2, status: "active" },
+    { id: 4, name: "BDC CUPS MONITORING", adGroup: "UG_0365_EMS_POC", createdBy: "Maharajan, Iyappan", createdById: "4943218", createdAt: "03/12/2025", createdTime: "09:16:19 PM", channels: 5, events: 4, rules: 2, status: "active" },
+    { id: 5, name: "BDC CUPS MONITORING", adGroup: "UG_0365_EMS_POC", createdBy: "Maharajan, Iyappan", createdById: "4943218", createdAt: "03/12/2025", createdTime: "09:16:19 PM", channels: 5, events: 4, rules: 2, status: "active" },
+    { id: 6, name: "BDC CUPS MONITORING", adGroup: "UG_0365_EMS_POC", createdBy: "Maharajan, Iyappan", createdById: "4943218", createdAt: "03/12/2025", createdTime: "09:16:19 PM", channels: 5, events: 4, rules: 2, status: "inactive" },
+  ];
 
   return (
-    <div className="w-full p-5">
+    <div className="w-full p-5 space-y-6">
+      
       <div className="flex">
         <div className="w-[360px]">
           <div className="grid w-full grid-cols-2 rounded-lg bg-muted p-1">
             <button
               onClick={() => setActiveTab("my-profile")}
-              className={`rounded-md px-3 py-1.5 text-sm font-medium ${activeTab ===
+              className={`rounded-md px-3 py-1.5 text-sm font-medium transition-all duration-200 ${activeTab ===
               "my-profile"
                 ? "bg-background text-foreground shadow"
                 : "text-muted-foreground hover:text-foreground"}`}
@@ -36,7 +48,7 @@ export default function Home() {
             </button>
             <button
               onClick={() => setActiveTab("other-profile")}
-              className={`rounded-md px-3 py-1.5 text-sm font-medium ${activeTab ===
+              className={`rounded-md px-3 py-1.5 text-sm font-medium transition-all duration-200 ${activeTab ===
               "other-profile"
                 ? "bg-background text-foreground shadow"
                 : "text-muted-foreground hover:text-foreground"}`}
@@ -46,51 +58,43 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="mt-6">
-          <Card>
-            <CardContent className="flex p-3 justify-between">
+      <div>
+          <Card className="shadow-sm">
+            <CardContent className="flex p-3 justify-between items-center">
               <div className="relative w-full max-w-xs mr-4">
                 <input
                   type="text"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                   placeholder="Search profiles..."
-                  className="w-full rounded-md border border-gray-300 p-2 pl-10 text-sm focus:border-blue-500 focus:ring-blue-500"
+                  className="w-full rounded-md border border-gray-300 py-2 pl-10 text-sm focus:border-blue-500 focus:ring-blue-500 focus:outline-none transition-all duration-200"
                 />
                 <div className="absolute inset-y-0 left-0 flex items-center pl-3">
-                  <svg
-                    className="h-5 w-5 text-gray-400"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M21 21l-4.35-4.35M17 10a7 7 0 11-14 0 7 7 0 0114 0z"
-                    ></path>
-                  </svg>
+                  <SearchIcon className="h-4 w-4 text-gray-400" />
                 </div>
               </div>
               <div className="flex justify-center gap-3">
-              <Button variant="outline" size="sm" className="mr-2 bg-pri text-white hover:bg-pri/90 hover:text-white">
-                Profile Onboard
-              </Button>
-              <Button variant="outline" size="sm" className="mr-2">
-              <Filter/>
-              </Button>
+                <Button 
+                  size="sm" 
+                  className="bg-pri text-white hover:bg-pri/90 hover:text-white transition-all duration-200 flex items-center gap-1"
+                >
+                  <Plus className="h-4 w-4" /> Profile Onboard
+                </Button>
+                <Button variant="outline" size="sm" className="border-gray-300 hover:bg-gray-100 transition-all duration-200">
+                  <Filter className="h-4 w-4" />
+                </Button>
               </div>
             </CardContent>
           </Card>
       </div>
-      <div className="w-full mt-6">
+      <div className="w-full">
         {activeTab === "my-profile" &&
-          <Card className="w-full">
+          <Card className="w-full shadow-sm overflow-hidden">
             <CardContent className="px-0 py-0">
               <Table className="border-collapse">
-                <TableHeader className="text-xs">
+                <TableHeader className="text-xs bg-gray-50">
                   <TableRow className="border-b text-black">
-                    <TableHead className="border-r text-black font-bold text-left">
+                    <TableHead className="border-r text-black font-bold text-left py-3">
                       Name
                     </TableHead>
                     <TableHead className="border-r text-black font-bold text-left">
@@ -111,180 +115,80 @@ export default function Home() {
                     <TableHead className="border-r w-[1%] text-black font-bold text-center">
                       Rules
                     </TableHead>
+                    <TableHead className="border-r w-[1%] text-black font-bold text-center">
+                      Status
+                    </TableHead>
                     <TableHead className="w-[15%] text-black font-bold text-center">
                       Actions
                     </TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody className="text-xs">
-                  <TableRow className="border-b">
-                    <TableCell className="border-r font-medium text-left">
-                      BDC CUPS MONITORING
-                    </TableCell>
-                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>Maharajan, Iyappan</span> <br />
-                      <span>(4943218)</span>
-                    </TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
-                    </TableCell>
-                    <TableCell className="border-r text-center">5</TableCell>
-                    <TableCell className="border-r text-center">4</TableCell>
-                    <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center">
-                      <div className="flex justify-center space-x-4" >
-                        <Button variant="outline" size="icon" className="h-8 w-8">
-                          <EditIcon className="h-4 w-4" />
-                        </Button>
-                        <Button variant="destructive" size="icon" className="h-8 w-8">
-                          <TrashIcon className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="border-r font-medium text-left">
-                      BDC CUPS MONITORING
-                    </TableCell>
-                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>Maharajan, Iyappan</span> <br />
-                      <span>(4943218)</span>
-                    </TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
-                    </TableCell>
-                    <TableCell className="border-r text-center">5</TableCell>
-                    <TableCell className="border-r text-center">4</TableCell>
-                    <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center">
-                      <div className="flex justify-center space-x-4" >
-                        <Button variant="outline" size="icon" className="h-8 w-8">
-                          <EditIcon className="h-4 w-4" />
-                        </Button>
-                        <Button variant="destructive" size="icon" className="h-8 w-8">
-                          <TrashIcon className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow className="border-b">
-                    <TableCell className="border-r font-medium text-left">
-                      BDC CUPS MONITORING
-                    </TableCell>
-                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>Maharajan, Iyappan</span> <br />
-                      <span>(4943218)</span>
-                    </TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
-                    </TableCell>
-                    <TableCell className="border-r text-center">5</TableCell>
-                    <TableCell className="border-r text-center">4</TableCell>
-                    <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center">
-                      <div className="flex justify-center space-x-4" >
-                        <Button variant="outline" size="icon" className="h-8 w-8">
-                          <EditIcon className="h-4 w-4" />
-                        </Button>
-                        <Button variant="destructive" size="icon" className="h-8 w-8">
-                          <TrashIcon className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="border-r font-medium text-left">
-                      BDC CUPS MONITORING
-                    </TableCell>
-                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>Maharajan, Iyappan</span> <br />
-                      <span>(4943218)</span>
-                    </TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
-                    </TableCell>
-                    <TableCell className="border-r text-center">5</TableCell>
-                    <TableCell className="border-r text-center">4</TableCell>
-                    <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center">
-                      <div className="flex justify-center space-x-4" >
-                        <Button variant="outline" size="icon" className="h-8 w-8">
-                          <EditIcon className="h-4 w-4" />
-                        </Button>
-                        <Button variant="destructive" size="icon" className="h-8 w-8">
-                          <TrashIcon className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow className="border-b">
-                    <TableCell className="border-r font-medium text-left">
-                      BDC CUPS MONITORING
-                    </TableCell>
-                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>Maharajan, Iyappan</span> <br />
-                      <span>(4943218)</span>
-                    </TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
-                    </TableCell>
-                    <TableCell className="border-r text-center">5</TableCell>
-                    <TableCell className="border-r text-center">4</TableCell>
-                    <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center">
-                      <div className="flex justify-center space-x-4" >
-                        <Button variant="outline" size="icon" className="h-8 w-8">
-                          <EditIcon className="h-4 w-4" />
-                        </Button>
-                        <Button variant="destructive" size="icon" className="h-8 w-8">
-                          <TrashIcon className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="border-r font-medium text-left">
-                      BDC CUPS MONITORING
-                    </TableCell>
-                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>Maharajan, Iyappan</span> <br />
-                      <span>(4943218)</span>
-                    </TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
-                    </TableCell>
-                    <TableCell className="border-r text-center">5</TableCell>
-                    <TableCell className="border-r text-center">4</TableCell>
-                    <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center">
-                      <div className="flex justify-center space-x-4" >
-                        <Button variant="outline" size="icon" className="h-8 w-8">
-                          <EditIcon className="h-4 w-4" />
-                        </Button>
-                        <Button variant="destructive" size="icon" className="h-8 w-8">
-                          <TrashIcon className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
+                  {profiles.length > 0 ? (
+                    profiles.map((profile, index) => (
+                      <TableRow 
+                        key={profile.id} 
+                        className={`${index % 2 === 0 ? 'border-b' : ''} hover:bg-gray-50 transition-colors duration-150`}
+                      >
+                        <TableCell className="border-r font-medium text-left">
+                          {profile.name}
+                        </TableCell>
+                        <TableCell className="border-r text-left">{profile.adGroup}</TableCell>
+                        <TableCell className="border-r text-left">
+                          <span>{profile.createdBy}</span> <br />
+                          <span className="text-gray-500">({profile.createdById})</span>
+                        </TableCell>
+                        <TableCell className="border-r text-left">
+                          <span>{profile.createdAt}</span> <br /> 
+                          <span className="text-gray-500">{profile.createdTime}</span>
+                        </TableCell>
+                        <TableCell className="border-r text-center font-medium">{profile.channels}</TableCell>
+                        <TableCell className="border-r text-center font-medium">{profile.events}</TableCell>
+                        <TableCell className="border-r text-center font-medium">{profile.rules}</TableCell>
+                        <TableCell className="border-r text-center">
+                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                            profile.status === 'active' 
+                              ? 'bg-green-100 text-green-800' 
+                              : 'bg-red-100 text-red-800'
+                          }`}>
+                            {profile.status === 'active' ? 'Active' : 'Inactive'}
+                          </span>
+                        </TableCell>
+                        <TableCell className="text-center">
+                          <div className="flex justify-center space-x-2">
+                            <Button variant="outline" size="icon" className="h-7 w-7 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200">
+                              <EditIcon className="h-3.5 w-3.5" />
+                            </Button>
+                            <Button variant="outline" size="icon" className="h-7 w-7 text-red-500 hover:bg-red-50 hover:text-red-600 border-red-200 transition-all duration-200">
+                              <TrashIcon className="h-3.5 w-3.5" />
+                            </Button>
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    ))
+                  ) : (
+                    <TableRow>
+                      <TableCell colSpan={9} className="h-32 text-center text-gray-500">
+                        <div className="flex flex-col items-center justify-center space-y-2">
+                          <SearchIcon className="h-8 w-8 text-gray-300" />
+                          <p className="text-sm">No profiles found</p>
+                          {searchQuery && <p className="text-xs">Try adjusting your search criteria</p>}
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  )}
                 </TableBody>
               </Table>
             </CardContent>
           </Card>}
 
         {activeTab === "other-profile" &&
-          <Card className="w-full">
+          <Card className="w-full shadow-sm overflow-hidden">
             <CardContent className="px-0 py-0">
-            <Table className="border-collapse">
-                <TableHeader className="text-xs">
+              <Table className="border-collapse">
+                <TableHeader className="text-xs bg-gray-50">
                   <TableRow className="border-b text-black">
-                    <TableHead className="border-r text-black font-bold text-left">
+                    <TableHead className="border-r text-black font-bold text-left py-3">
                       Name
                     </TableHead>
                     <TableHead className="border-r text-black font-bold text-left">
@@ -305,180 +209,83 @@ export default function Home() {
                     <TableHead className="border-r w-[1%] text-black font-bold text-center">
                       Rules
                     </TableHead>
+                    <TableHead className="border-r w-[1%] text-black font-bold text-center">
+                      Status
+                    </TableHead>
                     <TableHead className="w-[15%] text-black font-bold text-center">
                       Actions
                     </TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody className="text-xs">
-                  <TableRow className="border-b">
-                    <TableCell className="border-r font-medium text-left">
-                      BDC CUPS MONITORING
-                    </TableCell>
-                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>Maharajan, Iyappan</span> <br />
-                      <span>(4943218)</span>
-                    </TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
-                    </TableCell>
-                    <TableCell className="border-r text-center">5</TableCell>
-                    <TableCell className="border-r text-center">4</TableCell>
-                    <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center">
-                      <div className="flex justify-center space-x-4" >
-                        <Button variant="outline" size="icon" className="h-8 w-8">
-                          <EditIcon className="h-4 w-4" />
-                        </Button>
-                        <Button variant="destructive" size="icon" className="h-8 w-8">
-                          <TrashIcon className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="border-r font-medium text-left">
-                      BDC CUPS MONITORING
-                    </TableCell>
-                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>Maharajan, Iyappan</span> <br />
-                      <span>(4943218)</span>
-                    </TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
-                    </TableCell>
-                    <TableCell className="border-r text-center">5</TableCell>
-                    <TableCell className="border-r text-center">4</TableCell>
-                    <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center">
-                      <div className="flex justify-center space-x-4" >
-                        <Button variant="outline" size="icon" className="h-8 w-8">
-                          <EditIcon className="h-4 w-4" />
-                        </Button>
-                        <Button variant="destructive" size="icon" className="h-8 w-8">
-                          <TrashIcon className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow className="border-b">
-                    <TableCell className="border-r font-medium text-left">
-                      BDC CUPS MONITORING
-                    </TableCell>
-                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>Maharajan, Iyappan</span> <br />
-                      <span>(4943218)</span>
-                    </TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
-                    </TableCell>
-                    <TableCell className="border-r text-center">5</TableCell>
-                    <TableCell className="border-r text-center">4</TableCell>
-                    <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center">
-                      <div className="flex justify-center space-x-4" >
-                        <Button variant="outline" size="icon" className="h-8 w-8">
-                          <EditIcon className="h-4 w-4" />
-                        </Button>
-                        <Button variant="destructive" size="icon" className="h-8 w-8">
-                          <TrashIcon className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="border-r font-medium text-left">
-                      BDC CUPS MONITORING
-                    </TableCell>
-                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>Maharajan, Iyappan</span> <br />
-                      <span>(4943218)</span>
-                    </TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
-                    </TableCell>
-                    <TableCell className="border-r text-center">5</TableCell>
-                    <TableCell className="border-r text-center">4</TableCell>
-                    <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center">
-                      <div className="flex justify-center space-x-4" >
-                        <Button variant="outline" size="icon" className="h-8 w-8">
-                          <EditIcon className="h-4 w-4" />
-                        </Button>
-                        <Button variant="destructive" size="icon" className="h-8 w-8">
-                          <TrashIcon className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow className="border-b">
-                    <TableCell className="border-r font-medium text-left">
-                      BDC CUPS MONITORING
-                    </TableCell>
-                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>Maharajan, Iyappan</span> <br />
-                      <span>(4943218)</span>
-                    </TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
-                    </TableCell>
-                    <TableCell className="border-r text-center">5</TableCell>
-                    <TableCell className="border-r text-center">4</TableCell>
-                    <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center">
-                      <div className="flex justify-center space-x-4" >
-                        <Button variant="outline" size="icon" className="h-8 w-8">
-                          <EditIcon className="h-4 w-4" />
-                        </Button>
-                        <Button variant="destructive" size="icon" className="h-8 w-8">
-                          <TrashIcon className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell className="border-r font-medium text-left">
-                      BDC CUPS MONITORING
-                    </TableCell>
-                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>Maharajan, Iyappan</span> <br />
-                      <span>(4943218)</span>
-                    </TableCell>
-                    <TableCell className="border-r text-left">
-                      <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
-                    </TableCell>
-                    <TableCell className="border-r text-center">5</TableCell>
-                    <TableCell className="border-r text-center">4</TableCell>
-                    <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center">
-                      <div className="flex justify-center space-x-4" >
-                        <Button variant="outline" size="icon" className="h-8 w-8">
-                          <EditIcon className="h-4 w-4" />
-                        </Button>
-                        <Button variant="destructive" size="icon" className="h-8 w-8">
-                          <TrashIcon className="h-4 w-4" />
-                        </Button>
-                      </div>
-                    </TableCell>
-                  </TableRow>
+                  {profiles.length > 0 ? (
+                    profiles.map((profile, index) => (
+                      <TableRow 
+                        key={profile.id} 
+                        className={`${index % 2 === 0 ? 'border-b' : ''} hover:bg-gray-50 transition-colors duration-150`}
+                      >
+                        <TableCell className="border-r font-medium text-left">
+                          {profile.name}
+                        </TableCell>
+                        <TableCell className="border-r text-left">{profile.adGroup}</TableCell>
+                        <TableCell className="border-r text-left">
+                          <span>{profile.createdBy}</span> <br />
+                          <span className="text-gray-500">({profile.createdById})</span>
+                        </TableCell>
+                        <TableCell className="border-r text-left">
+                          <span>{profile.createdAt}</span> <br /> 
+                          <span className="text-gray-500">{profile.createdTime}</span>
+                        </TableCell>
+                        <TableCell className="border-r text-center font-medium">{profile.channels}</TableCell>
+                        <TableCell className="border-r text-center font-medium">{profile.events}</TableCell>
+                        <TableCell className="border-r text-center font-medium">{profile.rules}</TableCell>
+                        <TableCell className="border-r text-center">
+                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
+                            profile.status === 'active' 
+                              ? 'bg-green-100 text-green-800' 
+                              : 'bg-red-100 text-red-800'
+                          }`}>
+                            {profile.status === 'active' ? 'Active' : 'Inactive'}
+                          </span>
+                        </TableCell>
+                        <TableCell className="text-center">
+                          <div className="flex justify-center space-x-2">
+                            <Button variant="outline" size="icon" className="h-7 w-7 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200">
+                              <EditIcon className="h-3.5 w-3.5" />
+                            </Button>
+                            <Button variant="outline" size="icon" className="h-7 w-7 text-red-500 hover:bg-red-50 hover:text-red-600 border-red-200 transition-all duration-200">
+                              <TrashIcon className="h-3.5 w-3.5" />
+                            </Button>
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    ))
+                  ) : (
+                    <TableRow>
+                      <TableCell colSpan={9} className="h-32 text-center text-gray-500">
+                        <div className="flex flex-col items-center justify-center space-y-2">
+                          <SearchIcon className="h-8 w-8 text-gray-300" />
+                          <p className="text-sm">No profiles found</p>
+                          {searchQuery && <p className="text-xs">Try adjusting your search criteria</p>}
+                        </div>
+                      </TableCell>
+                    </TableRow>
+                  )}
                 </TableBody>
               </Table>
             </CardContent>
           </Card>}
-            <div className="mt-6 flex justify-between w-full">
-            <select className="border border-gray-300 rounded-md p-2 text-sm mr-4 self-end">
-              <option value="10">10 Rows</option>
-              <option value="20">20 Rows</option>
-              <option value="30">30 Rows</option>
-              <option value="50">50 Rows</option>
-            </select>
-            <PaginationView />
+            <div className="mt-6 flex justify-between w-full items-center">
+              <div className="flex items-center space-x-2">
+                <select className="border border-gray-300 rounded-md p-2 text-sm self-end bg-white hover:border-gray-400 focus:outline-none focus:ring-1 focus:ring-blue-500 transition-all duration-200">
+                  <option value="10">10 Rows</option>
+                  <option value="20">20 Rows</option>
+                  <option value="30">30 Rows</option>
+                  <option value="50">50 Rows</option>
+                </select>
+                <span className="text-sm text-gray-500">Showing 1 of 6 profiles</span>
+              </div>
+              <PaginationView />
             </div>
       </div>
     </div>
