@@ -21,9 +21,9 @@ export default function Home() {
   const [activeTab, setActiveTab] = useState("my-profile");
 
   return (
-    <div className="w-full p-6">
+    <div className="w-full p-5">
       <div className="flex">
-        <div className="w-[400px]">
+        <div className="w-[360px]">
           <div className="grid w-full grid-cols-2 rounded-lg bg-muted p-1">
             <button
               onClick={() => setActiveTab("my-profile")}

@@ -9,8 +9,12 @@ import {
   LogOut,
   MoreHorizontal,
   ChevronDown,
-  ClipboardList,
-  PencilRulerIcon,
+  FileStack, // Better for Profiles
+  Calendar, // Better for Maintenance Window
+  AlertCircle, // Better for Event Console
+  UserCog, // For Profile
+  Settings2, // For Settings
+  LogOut as SignOut, // For Signout
   LogsIcon
 } from "lucide-react";
 import { useSidebar } from "@/context/SidebarContext";
@@ -32,12 +36,12 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   {
-    icon: <ClipboardList size={20} />,
+    icon: <FileStack size={20} />,
     name: "Profiles",
     path: "/profiles"
   },
   {
-    icon: <PencilRulerIcon size={20} />,
+    icon: <Calendar size={20} />,
     name: "Maintenance Window",
     path: "/maintenance-window"
   },
@@ -50,17 +54,17 @@ const navItems: NavItem[] = [
 
 const othersItems: NavItem[] = [
   {
-    icon: <UserCircle size={20} />,
+    icon: <UserCog size={20} />,
     name: "Profile",
     path: "/dashboard/profile"
   },
   {
-    icon: <Settings size={20} />,
+    icon: <Settings2 size={20} />,
     name: "Settings",
     path: "/settings/account"
   },
   {
-    icon: <LogOut size={20} color="red" />,
+    icon: <SignOut size={20} color="red" />,
     name: "Signout",
     path: "/logout"
   }
