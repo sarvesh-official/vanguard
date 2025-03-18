@@ -23,12 +23,12 @@ export default function Home() {
 
   // Sample data - in a real app, this would come from your API
   const profiles = [
-    { id: 1, name: "BDC CUPS MONITORING", adGroup: "UG_0365_EMS_POC", createdBy: "Maharajan, Iyappan", createdById: "4943218", createdAt: "03/12/2025", createdTime: "09:16:19 PM", channels: 5, events: 4, rules: 2, status: "active" },
-    { id: 2, name: "BDC CUPS MONITORING", adGroup: "UG_0365_EMS_POC", createdBy: "Maharajan, Iyappan", createdById: "4943218", createdAt: "03/12/2025", createdTime: "09:16:19 PM", channels: 5, events: 4, rules: 2, status: "inactive" },
-    { id: 3, name: "BDC CUPS MONITORING", adGroup: "UG_0365_EMS_POC", createdBy: "Maharajan, Iyappan", createdById: "4943218", createdAt: "03/12/2025", createdTime: "09:16:19 PM", channels: 5, events: 4, rules: 2, status: "active" },
-    { id: 4, name: "BDC CUPS MONITORING", adGroup: "UG_0365_EMS_POC", createdBy: "Maharajan, Iyappan", createdById: "4943218", createdAt: "03/12/2025", createdTime: "09:16:19 PM", channels: 5, events: 4, rules: 2, status: "active" },
-    { id: 5, name: "BDC CUPS MONITORING", adGroup: "UG_0365_EMS_POC", createdBy: "Maharajan, Iyappan", createdById: "4943218", createdAt: "03/12/2025", createdTime: "09:16:19 PM", channels: 5, events: 4, rules: 2, status: "active" },
-    { id: 6, name: "BDC CUPS MONITORING", adGroup: "UG_0365_EMS_POC", createdBy: "Maharajan, Iyappan", createdById: "4943218", createdAt: "03/12/2025", createdTime: "09:16:19 PM", channels: 5, events: 4, rules: 2, status: "inactive" },
+    { id: 1, name: "BDC CUPS MONITORING", adGroup: "UG_0365_EMS_POC", createdBy: "Maharajan, Iyappan", createdById: "4943218", createdAt: "03/12/2025", createdTime: "09:16:19 PM", channels: 5, events: 4, rules: 2 },
+    { id: 2, name: "BDC CUPS MONITORING", adGroup: "UG_0365_EMS_POC", createdBy: "Maharajan, Iyappan", createdById: "4943218", createdAt: "03/12/2025", createdTime: "09:16:19 PM", channels: 5, events: 4, rules: 2 },
+    { id: 3, name: "BDC CUPS MONITORING", adGroup: "UG_0365_EMS_POC", createdBy: "Maharajan, Iyappan", createdById: "4943218", createdAt: "03/12/2025", createdTime: "09:16:19 PM", channels: 5, events: 4, rules: 2 },
+    { id: 4, name: "BDC CUPS MONITORING", adGroup: "UG_0365_EMS_POC", createdBy: "Maharajan, Iyappan", createdById: "4943218", createdAt: "03/12/2025", createdTime: "09:16:19 PM", channels: 5, events: 4, rules: 2 },
+    { id: 5, name: "BDC CUPS MONITORING", adGroup: "UG_0365_EMS_POC", createdBy: "Maharajan, Iyappan", createdById: "4943218", createdAt: "03/12/2025", createdTime: "09:16:19 PM", channels: 5, events: 4, rules: 2 },
+    { id: 6, name: "BDC CUPS MONITORING", adGroup: "UG_0365_EMS_POC", createdBy: "Maharajan, Iyappan", createdById: "4943218", createdAt: "03/12/2025", createdTime: "09:16:19 PM", channels: 5, events: 4, rules: 2 },
   ];
 
   return (
@@ -115,13 +115,10 @@ export default function Home() {
                     <TableHead className="border-r w-[1%] text-black font-bold text-center">
                       Rules
                     </TableHead>
-                    <TableHead className="border-r w-[1%] text-black font-bold text-center">
-                      Status
-                    </TableHead>
                     <TableHead className="w-[15%] text-black font-bold text-center">
                       Actions
-                    </TableHead>
-                  </TableRow>
+                      </TableHead>
+                    </TableRow>
                 </TableHeader>
                 <TableBody className="text-xs">
                   {profiles.length > 0 ? (
@@ -145,15 +142,6 @@ export default function Home() {
                         <TableCell className="border-r text-center font-medium">{profile.channels}</TableCell>
                         <TableCell className="border-r text-center font-medium">{profile.events}</TableCell>
                         <TableCell className="border-r text-center font-medium">{profile.rules}</TableCell>
-                        <TableCell className="border-r text-center">
-                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                            profile.status === 'active' 
-                              ? 'bg-green-100 text-green-800' 
-                              : 'bg-red-100 text-red-800'
-                          }`}>
-                            {profile.status === 'active' ? 'Active' : 'Inactive'}
-                          </span>
-                        </TableCell>
                         <TableCell className="text-center">
                           <div className="flex justify-center space-x-2">
                             <Button variant="outline" size="icon" className="h-7 w-7 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200">
@@ -168,7 +156,7 @@ export default function Home() {
                     ))
                   ) : (
                     <TableRow>
-                      <TableCell colSpan={9} className="h-32 text-center text-gray-500">
+                      <TableCell colSpan={8} className="h-32 text-center text-gray-500">
                         <div className="flex flex-col items-center justify-center space-y-2">
                           <SearchIcon className="h-8 w-8 text-gray-300" />
                           <p className="text-sm">No profiles found</p>
@@ -209,13 +197,10 @@ export default function Home() {
                     <TableHead className="border-r w-[1%] text-black font-bold text-center">
                       Rules
                     </TableHead>
-                    <TableHead className="border-r w-[1%] text-black font-bold text-center">
-                      Status
-                    </TableHead>
                     <TableHead className="w-[15%] text-black font-bold text-center">
                       Actions
-                    </TableHead>
-                  </TableRow>
+                      </TableHead>
+                    </TableRow>
                 </TableHeader>
                 <TableBody className="text-xs">
                   {profiles.length > 0 ? (
@@ -239,15 +224,6 @@ export default function Home() {
                         <TableCell className="border-r text-center font-medium">{profile.channels}</TableCell>
                         <TableCell className="border-r text-center font-medium">{profile.events}</TableCell>
                         <TableCell className="border-r text-center font-medium">{profile.rules}</TableCell>
-                        <TableCell className="border-r text-center">
-                          <span className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium ${
-                            profile.status === 'active' 
-                              ? 'bg-green-100 text-green-800' 
-                              : 'bg-red-100 text-red-800'
-                          }`}>
-                            {profile.status === 'active' ? 'Active' : 'Inactive'}
-                          </span>
-                        </TableCell>
                         <TableCell className="text-center">
                           <div className="flex justify-center space-x-2">
                             <Button variant="outline" size="icon" className="h-7 w-7 hover:bg-blue-50 hover:text-blue-600 transition-all duration-200">
@@ -262,7 +238,7 @@ export default function Home() {
                     ))
                   ) : (
                     <TableRow>
-                      <TableCell colSpan={9} className="h-32 text-center text-gray-500">
+                      <TableCell colSpan={8} className="h-32 text-center text-gray-500">
                         <div className="flex flex-col items-center justify-center space-y-2">
                           <SearchIcon className="h-8 w-8 text-gray-300" />
                           <p className="text-sm">No profiles found</p>
