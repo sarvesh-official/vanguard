@@ -48,7 +48,7 @@ export default function Home() {
       </div>
       <div className="mt-6">
           <Card>
-            <CardContent className="flex p-4 justify-between">
+            <CardContent className="flex p-3 justify-between">
               <div className="relative w-full max-w-xs mr-4">
                 <input
                   type="text"
@@ -93,13 +93,13 @@ export default function Home() {
                     <TableHead className="border-r text-black font-bold text-left">
                       Name
                     </TableHead>
-                    <TableHead className="border-r text-black font-bold text-center">
+                    <TableHead className="border-r text-black font-bold text-left">
                       Ad Group
                     </TableHead>
-                    <TableHead className="border-r text-black font-bold text-center">
+                    <TableHead className="border-r text-black font-bold text-left">
                       Created By
                     </TableHead>
-                    <TableHead className="border-r text-black font-bold text-center">
+                    <TableHead className="border-r text-black font-bold text-left">
                       Created At
                     </TableHead>
                     <TableHead className="border-r w-[1%] text-black font-bold text-center">
@@ -118,147 +118,159 @@ export default function Home() {
                 </TableHeader>
                 <TableBody className="text-xs">
                   <TableRow className="border-b">
-                    <TableCell className="border-r font-medium">
+                    <TableCell className="border-r font-medium text-left">
                       BDC CUPS MONITORING
                     </TableCell>
-                    <TableCell className="border-r text-center">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
+                    <TableCell className="border-r text-left">
                       <span>Maharajan, Iyappan</span> <br />
                       <span>(4943218)</span>
                     </TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">
                       <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
                     </TableCell>
                     <TableCell className="border-r text-center">5</TableCell>
                     <TableCell className="border-r text-center">4</TableCell>
                     <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center flex justify-center gap-4">
-                      <Button variant="outline" size="sm" className="mr-2">
-                        <EditIcon />
-                      </Button>
-                      <Button variant="destructive" size="sm">
-                        <TrashIcon />
-                      </Button>
+                    <TableCell className="text-center">
+                      <div className="flex justify-center space-x-4" >
+                        <Button variant="outline" size="icon" className="h-8 w-8">
+                          <EditIcon className="h-4 w-4" />
+                        </Button>
+                        <Button variant="destructive" size="icon" className="h-8 w-8">
+                          <TrashIcon className="h-4 w-4" />
+                        </Button>
+                      </div>
                     </TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell className="border-r font-medium">
+                    <TableCell className="border-r font-medium text-left">
                       BDC CUPS MONITORING
                     </TableCell>
-                    <TableCell className="border-r text-center">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
+                    <TableCell className="border-r text-left">
                       <span>Maharajan, Iyappan</span> <br />
                       <span>(4943218)</span>
                     </TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">
                       <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
                     </TableCell>
                     <TableCell className="border-r text-center">5</TableCell>
                     <TableCell className="border-r text-center">4</TableCell>
                     <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center flex justify-center gap-4">
-                      <Button variant="outline" size="sm" className="mr-2">
-                        <EditIcon />
-                      </Button>
-                      <Button variant="destructive" size="sm">
-                        <TrashIcon />
-                      </Button>
+                    <TableCell className="text-center">
+                      <div className="flex justify-center space-x-4" >
+                        <Button variant="outline" size="icon" className="h-8 w-8">
+                          <EditIcon className="h-4 w-4" />
+                        </Button>
+                        <Button variant="destructive" size="icon" className="h-8 w-8">
+                          <TrashIcon className="h-4 w-4" />
+                        </Button>
+                      </div>
                     </TableCell>
                   </TableRow>
                   <TableRow className="border-b">
-                    <TableCell className="border-r font-medium">
+                    <TableCell className="border-r font-medium text-left">
                       BDC CUPS MONITORING
                     </TableCell>
-                    <TableCell className="border-r text-center">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
+                    <TableCell className="border-r text-left">
                       <span>Maharajan, Iyappan</span> <br />
                       <span>(4943218)</span>
                     </TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">
                       <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
                     </TableCell>
                     <TableCell className="border-r text-center">5</TableCell>
                     <TableCell className="border-r text-center">4</TableCell>
                     <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center flex justify-center gap-4">
-                      <Button variant="outline" size="sm" className="mr-2">
-                        <EditIcon />
-                      </Button>
-                      <Button variant="destructive" size="sm">
-                        <TrashIcon />
-                      </Button>
+                    <TableCell className="text-center">
+                      <div className="flex justify-center space-x-4" >
+                        <Button variant="outline" size="icon" className="h-8 w-8">
+                          <EditIcon className="h-4 w-4" />
+                        </Button>
+                        <Button variant="destructive" size="icon" className="h-8 w-8">
+                          <TrashIcon className="h-4 w-4" />
+                        </Button>
+                      </div>
                     </TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell className="border-r font-medium">
+                    <TableCell className="border-r font-medium text-left">
                       BDC CUPS MONITORING
                     </TableCell>
-                    <TableCell className="border-r text-center">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
+                    <TableCell className="border-r text-left">
                       <span>Maharajan, Iyappan</span> <br />
                       <span>(4943218)</span>
                     </TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">
                       <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
                     </TableCell>
                     <TableCell className="border-r text-center">5</TableCell>
                     <TableCell className="border-r text-center">4</TableCell>
                     <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center flex justify-center gap-4">
-                      <Button variant="outline" size="sm" className="mr-2">
-                        <EditIcon />
-                      </Button>
-                      <Button variant="destructive" size="sm">
-                        <TrashIcon />
-                      </Button>
+                    <TableCell className="text-center">
+                      <div className="flex justify-center space-x-4" >
+                        <Button variant="outline" size="icon" className="h-8 w-8">
+                          <EditIcon className="h-4 w-4" />
+                        </Button>
+                        <Button variant="destructive" size="icon" className="h-8 w-8">
+                          <TrashIcon className="h-4 w-4" />
+                        </Button>
+                      </div>
                     </TableCell>
                   </TableRow>
                   <TableRow className="border-b">
-                    <TableCell className="border-r font-medium">
+                    <TableCell className="border-r font-medium text-left">
                       BDC CUPS MONITORING
                     </TableCell>
-                    <TableCell className="border-r text-center">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
+                    <TableCell className="border-r text-left">
                       <span>Maharajan, Iyappan</span> <br />
                       <span>(4943218)</span>
                     </TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">
                       <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
                     </TableCell>
                     <TableCell className="border-r text-center">5</TableCell>
                     <TableCell className="border-r text-center">4</TableCell>
                     <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center flex justify-center gap-4">
-                      <Button variant="outline" size="sm" className="mr-2">
-                        <EditIcon />
-                      </Button>
-                      <Button variant="destructive" size="sm">
-                        <TrashIcon />
-                      </Button>
+                    <TableCell className="text-center">
+                      <div className="flex justify-center space-x-4" >
+                        <Button variant="outline" size="icon" className="h-8 w-8">
+                          <EditIcon className="h-4 w-4" />
+                        </Button>
+                        <Button variant="destructive" size="icon" className="h-8 w-8">
+                          <TrashIcon className="h-4 w-4" />
+                        </Button>
+                      </div>
                     </TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell className="border-r font-medium">
+                    <TableCell className="border-r font-medium text-left">
                       BDC CUPS MONITORING
                     </TableCell>
-                    <TableCell className="border-r text-center">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
+                    <TableCell className="border-r text-left">
                       <span>Maharajan, Iyappan</span> <br />
                       <span>(4943218)</span>
                     </TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">
                       <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
                     </TableCell>
                     <TableCell className="border-r text-center">5</TableCell>
                     <TableCell className="border-r text-center">4</TableCell>
                     <TableCell className="border-r text-center">2</TableCell>
-                    <TableCell className="text-center flex justify-center gap-4">
-                      <Button variant="outline" size="sm" className="mr-2">
-                        <EditIcon />
-                      </Button>
-                      <Button variant="destructive" size="sm">
-                        <TrashIcon />
-                      </Button>
+                    <TableCell className="text-center">
+                      <div className="flex justify-center space-x-4" >
+                        <Button variant="outline" size="icon" className="h-8 w-8">
+                          <EditIcon className="h-4 w-4" />
+                        </Button>
+                        <Button variant="destructive" size="icon" className="h-8 w-8">
+                          <TrashIcon className="h-4 w-4" />
+                        </Button>
+                      </div>
                     </TableCell>
                   </TableRow>
                 </TableBody>
@@ -268,20 +280,20 @@ export default function Home() {
 
         {activeTab === "other-profile" &&
           <Card className="w-full">
-            <CardContent className="p-6">
+            <CardContent className="px-0 py-0">
             <Table className="border-collapse">
-                <TableHeader>
+                <TableHeader className="text-xs">
                   <TableRow className="border-b text-black">
-                    <TableHead className="border-r text-black font-bold text-center">
+                    <TableHead className="border-r text-black font-bold text-left">
                       Name
                     </TableHead>
-                    <TableHead className="border-r text-black font-bold text-center">
+                    <TableHead className="border-r text-black font-bold text-left">
                       Ad Group
                     </TableHead>
-                    <TableHead className="border-r text-black font-bold text-center">
+                    <TableHead className="border-r text-black font-bold text-left">
                       Created By
                     </TableHead>
-                    <TableHead className="border-r text-black font-bold text-center">
+                    <TableHead className="border-r text-black font-bold text-left">
                       Created At
                     </TableHead>
                     <TableHead className="border-r w-[1%] text-black font-bold text-center">
@@ -298,149 +310,161 @@ export default function Home() {
                     </TableHead>
                   </TableRow>
                 </TableHeader>
-                <TableBody>
+                <TableBody className="text-xs">
                   <TableRow className="border-b">
-                    <TableCell className="border-r font-medium">
+                    <TableCell className="border-r font-medium text-left">
                       BDC CUPS MONITORING
                     </TableCell>
-                    <TableCell className="border-r text-center">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
+                    <TableCell className="border-r text-left">
                       <span>Maharajan, Iyappan</span> <br />
                       <span>(4943218)</span>
                     </TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">
                       <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
                     </TableCell>
                     <TableCell className="border-r text-center">5</TableCell>
                     <TableCell className="border-r text-center">4</TableCell>
                     <TableCell className="border-r text-center">2</TableCell>
                     <TableCell className="text-center">
-                      <Button variant="outline" size="sm" className="mr-2">
-                        <EditIcon />
-                      </Button>
-                      <Button variant="destructive" size="sm">
-                        <TrashIcon />
-                      </Button>
+                      <div className="flex justify-center space-x-4" >
+                        <Button variant="outline" size="icon" className="h-8 w-8">
+                          <EditIcon className="h-4 w-4" />
+                        </Button>
+                        <Button variant="destructive" size="icon" className="h-8 w-8">
+                          <TrashIcon className="h-4 w-4" />
+                        </Button>
+                      </div>
                     </TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell className="border-r font-medium">
+                    <TableCell className="border-r font-medium text-left">
                       BDC CUPS MONITORING
                     </TableCell>
-                    <TableCell className="border-r text-center">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
+                    <TableCell className="border-r text-left">
                       <span>Maharajan, Iyappan</span> <br />
                       <span>(4943218)</span>
                     </TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">
                       <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
                     </TableCell>
                     <TableCell className="border-r text-center">5</TableCell>
                     <TableCell className="border-r text-center">4</TableCell>
                     <TableCell className="border-r text-center">2</TableCell>
                     <TableCell className="text-center">
-                      <Button variant="outline" size="sm" className="mr-2">
-                        <EditIcon />
-                      </Button>
-                      <Button variant="destructive" size="sm">
-                        <TrashIcon />
-                      </Button>
+                      <div className="flex justify-center space-x-4" >
+                        <Button variant="outline" size="icon" className="h-8 w-8">
+                          <EditIcon className="h-4 w-4" />
+                        </Button>
+                        <Button variant="destructive" size="icon" className="h-8 w-8">
+                          <TrashIcon className="h-4 w-4" />
+                        </Button>
+                      </div>
                     </TableCell>
                   </TableRow>
                   <TableRow className="border-b">
-                    <TableCell className="border-r font-medium">
+                    <TableCell className="border-r font-medium text-left">
                       BDC CUPS MONITORING
                     </TableCell>
-                    <TableCell className="border-r text-center">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
+                    <TableCell className="border-r text-left">
                       <span>Maharajan, Iyappan</span> <br />
                       <span>(4943218)</span>
                     </TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">
                       <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
                     </TableCell>
                     <TableCell className="border-r text-center">5</TableCell>
                     <TableCell className="border-r text-center">4</TableCell>
                     <TableCell className="border-r text-center">2</TableCell>
                     <TableCell className="text-center">
-                      <Button variant="outline" size="sm" className="mr-2">
-                        <EditIcon />
-                      </Button>
-                      <Button variant="destructive" size="sm">
-                        <TrashIcon />
-                      </Button>
+                      <div className="flex justify-center space-x-4" >
+                        <Button variant="outline" size="icon" className="h-8 w-8">
+                          <EditIcon className="h-4 w-4" />
+                        </Button>
+                        <Button variant="destructive" size="icon" className="h-8 w-8">
+                          <TrashIcon className="h-4 w-4" />
+                        </Button>
+                      </div>
                     </TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell className="border-r font-medium">
+                    <TableCell className="border-r font-medium text-left">
                       BDC CUPS MONITORING
                     </TableCell>
-                    <TableCell className="border-r text-center">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
+                    <TableCell className="border-r text-left">
                       <span>Maharajan, Iyappan</span> <br />
                       <span>(4943218)</span>
                     </TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">
                       <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
                     </TableCell>
                     <TableCell className="border-r text-center">5</TableCell>
                     <TableCell className="border-r text-center">4</TableCell>
                     <TableCell className="border-r text-center">2</TableCell>
                     <TableCell className="text-center">
-                      <Button variant="outline" size="sm" className="mr-2">
-                        <EditIcon />
-                      </Button>
-                      <Button variant="destructive" size="sm">
-                        <TrashIcon />
-                      </Button>
+                      <div className="flex justify-center space-x-4" >
+                        <Button variant="outline" size="icon" className="h-8 w-8">
+                          <EditIcon className="h-4 w-4" />
+                        </Button>
+                        <Button variant="destructive" size="icon" className="h-8 w-8">
+                          <TrashIcon className="h-4 w-4" />
+                        </Button>
+                      </div>
                     </TableCell>
                   </TableRow>
                   <TableRow className="border-b">
-                    <TableCell className="border-r font-medium">
+                    <TableCell className="border-r font-medium text-left">
                       BDC CUPS MONITORING
                     </TableCell>
-                    <TableCell className="border-r text-center">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
+                    <TableCell className="border-r text-left">
                       <span>Maharajan, Iyappan</span> <br />
                       <span>(4943218)</span>
                     </TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">
                       <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
                     </TableCell>
                     <TableCell className="border-r text-center">5</TableCell>
                     <TableCell className="border-r text-center">4</TableCell>
                     <TableCell className="border-r text-center">2</TableCell>
                     <TableCell className="text-center">
-                      <Button variant="outline" size="sm" className="mr-2">
-                        <EditIcon />
-                      </Button>
-                      <Button variant="destructive" size="sm">
-                        <TrashIcon />
-                      </Button>
+                      <div className="flex justify-center space-x-4" >
+                        <Button variant="outline" size="icon" className="h-8 w-8">
+                          <EditIcon className="h-4 w-4" />
+                        </Button>
+                        <Button variant="destructive" size="icon" className="h-8 w-8">
+                          <TrashIcon className="h-4 w-4" />
+                        </Button>
+                      </div>
                     </TableCell>
                   </TableRow>
                   <TableRow>
-                    <TableCell className="border-r font-medium">
+                    <TableCell className="border-r font-medium text-left">
                       BDC CUPS MONITORING
                     </TableCell>
-                    <TableCell className="border-r text-center">UG_0365_EMS_POC</TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">UG_0365_EMS_POC</TableCell>
+                    <TableCell className="border-r text-left">
                       <span>Maharajan, Iyappan</span> <br />
                       <span>(4943218)</span>
                     </TableCell>
-                    <TableCell className="border-r text-center">
+                    <TableCell className="border-r text-left">
                       <span>03/12/2025</span> <br /> <span>09:16:19 PM</span>
                     </TableCell>
                     <TableCell className="border-r text-center">5</TableCell>
                     <TableCell className="border-r text-center">4</TableCell>
                     <TableCell className="border-r text-center">2</TableCell>
                     <TableCell className="text-center">
-                      <Button variant="outline" size="sm" className="mr-2">
-                        <EditIcon />
-                      </Button>
-                      <Button variant="destructive" size="sm">
-                        <TrashIcon />
-                      </Button>
+                      <div className="flex justify-center space-x-4" >
+                        <Button variant="outline" size="icon" className="h-8 w-8">
+                          <EditIcon className="h-4 w-4" />
+                        </Button>
+                        <Button variant="destructive" size="icon" className="h-8 w-8">
+                          <TrashIcon className="h-4 w-4" />
+                        </Button>
+                      </div>
                     </TableCell>
                   </TableRow>
                 </TableBody>
