@@ -4,16 +4,14 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
-  LayoutGrid,
-  BookOpen,
-  FileText,
-  MessageCircle,
-  GraduationCap,
   UserCircle,
   Settings,
   LogOut,
   MoreHorizontal,
-  ChevronDown
+  ChevronDown,
+  ClipboardList,
+  PencilRulerIcon,
+  LogsIcon
 } from "lucide-react";
 import { useSidebar } from "@/context/SidebarContext";
 
@@ -34,30 +32,19 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   {
-    icon: <LayoutGrid size={20} />,
-    name: "Dashboard",
-    path: "/dashboard"
+    icon: <ClipboardList size={20} />,
+    name: "Profiles",
+    path: "/profiles"
   },
   {
-    icon: <MessageCircle size={20} />,
-    name: "Chat with Docs",
-    path: "/piper/chat"
+    icon: <PencilRulerIcon size={20} />,
+    name: "Maintenance Window",
+    path: "/maintenance-window"
   },
   {
-    icon: <GraduationCap size={20} />,
-    name: "Course Generator",
-    path: "/piper/course/generate"
-  },
-  {
-    icon: <FileText size={20} />,
-    name: "My Documents",
-    path: "/piper/my-docs"
-  },
-  {
-    icon: <BookOpen size={20} />,
-    name: "My Courses",
-    path: "/piper/my-courses"
-
+    icon: <LogsIcon size={20} />,
+    name: "Event Console",
+    path: "/events"
   }
 ];
 
@@ -70,10 +57,7 @@ const othersItems: NavItem[] = [
   {
     icon: <Settings size={20} />,
     name: "Settings",
-    subItems: [
-      { name: "Account Settings", path: "/settings/account" },
-      { name: "Privacy", path: "/settings/privacy" }
-    ]
+    path: "/settings/account"
   },
   {
     icon: <LogOut size={20} color="red" />,
@@ -96,10 +80,10 @@ const AppSidebar: React.FC = () => {
           {nav.subItems ? (
             <button
               onClick={() => handleSubmenuToggle(index, menuType)}
-              className={`relative flex items-center w-full gap-3 px-3 py-2 font-medium rounded-lg text-sm group  ${
+              className={`relative flex items-center w-full gap-1 px-2 py-2 font-medium rounded-lg text-sm group  ${
                 openSubmenu?.type === menuType && openSubmenu?.index === index
-                  ? "menu-item-active bg-piper-blue/[0.12] text-white dark:text-white dark:bg-piper-cyan/[0.12]"
-                  : "menu-item-inactive text-white hover:bg-gray-100 hover:text-white group-hover:text-white dark:text-white dark:hover:bg-white/5 dark:hover:text-white"
+                  ? "menu-item-active text-white dark:text-white "
+                  : "menu-item-inactive text-white hover:bg-blue-800"
               } cursor-pointer ${
                 !isExpanded && !isHovered
                   ? "lg:justify-center"
@@ -110,7 +94,7 @@ const AppSidebar: React.FC = () => {
                 className={` ${
                   openSubmenu?.type === menuType && openSubmenu?.index === index
                     ? "menu-item-icon-active text-white dark:text-white"
-                    : "menu-item-icon-inactive text-white group-hover:text-white dark:text-white dark:group-hover:text-white"
+                    : "menu-item-icon-inactive text-white group-hover:text-white"
                 }`}
               >
                 {renderIcon(nav.icon)}
@@ -134,10 +118,10 @@ const AppSidebar: React.FC = () => {
             nav.path && (
               <Link
                 href={nav.path}
-                className={`menu-item relative flex items-center w-full gap-3 px-3 py-2 font-medium rounded-lg text-sm group ${
+                className={`menu-item relative flex items-center w-full gap-2 px-2 py-2 font-medium rounded-lg text-sm group ${
                   isActive(nav.path)
-                    ? "bg-piper-blue/[0.12] text-white dark:bg-piper-cyan/[0.12] dark:text-white"
-                    : "text-white hover:bg-gray-50 hover:text-white dark:text-white hover:dark:text-white hover:dark:bg-piper-darkblue/[0.12]"
+                    ? "text-white"
+                    : "text-white hover:bg-blue-800"
                 } ${
                   nav.name == "Signout" &&
                   "hover:bg-red-50/50 dark:hover:bg-red-500/30"
@@ -146,7 +130,7 @@ const AppSidebar: React.FC = () => {
                 <span
                   className={`${
                     isActive(nav.path)
-                      ? "menu-item-icon-active bg-piper-blue/[0.12] text-white dark:text-white dark:bg-piper-cyan/[0.12]"
+                      ? "menu-item-icon-active text-white dark:text-white"
                       : "menu-item-icon-inactive text-white group-hover:text-white dark:text-white dark:group-hover:text-white"
                   }`}
                 >
@@ -235,14 +219,13 @@ const AppSidebar: React.FC = () => {
       });
     });
 
-    // If no submenu item matches, close the open submenu
     if (!submenuMatched) {
       setOpenSubmenu(null);
     }
   }, [pathname, isActive]);
 
   useEffect(() => {
-    // Set the height of the submenu items when the submenu is opened
+
     if (openSubmenu !== null) {
       const key = `${openSubmenu.type}-${openSubmenu.index}`;
       if (subMenuRefs.current[key]) {
@@ -269,13 +252,13 @@ const AppSidebar: React.FC = () => {
 
   return (
     <aside
-      className={`fixed mt-16 flex flex-col lg:mt-0 top-0 px-5 left-0 bg-blue-800 dark:bg-gray-900 dark:border-gray-800 text-white h-screen transition-all duration-300 ease-in-out z-50 border-r border-gray-200 
+      className={`fixed mt-16 flex flex-col lg:mt-0 top-0 px-5 left-0 bg-pri text-white h-screen transition-all duration-300 ease-in-out z-50 
         ${
           isExpanded || isMobileOpen
             ? "w-[230px]"
             : isHovered
             ? "w-[230px]"
-            : "w-[90px]"
+            : "w-[80px]"
         }
         ${isMobileOpen ? "translate-x-0" : "-translate-x-full"}
         lg:translate-x-0`}
@@ -283,7 +266,7 @@ const AppSidebar: React.FC = () => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div
-        className={`py-8 flex  ${
+        className={`py-2 flex  ${
           !isExpanded && !isHovered ? "lg:justify-center" : "justify-start"
         }`}
       >
@@ -307,7 +290,7 @@ const AppSidebar: React.FC = () => {
           )}
         </Link>
       </div>
-      <div className="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar flex-grow">
+      <div className="flex flex-col py-4 overflow-y-auto duration-300 ease-linear no-scrollbar flex-grow">
         <nav>
           <div className="flex flex-col gap-4">
             <div>

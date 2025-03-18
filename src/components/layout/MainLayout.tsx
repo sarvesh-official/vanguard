@@ -16,7 +16,7 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => {
     ? "ml-0"
     : isExpanded || isHovered
     ? "lg:ml-[230px]"
-    : "lg:ml-[90px]";
+    : "lg:ml-[80px]";
 
   return (
     <div className="xl:flex">

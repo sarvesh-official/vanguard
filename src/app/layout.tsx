@@ -18,6 +18,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Vanguard | Lowe's Service Alert Layer",
   description: "Event Orchestration System",
+  icons: [ "/logo.svg"]
 };
 
 export default function RootLayout({

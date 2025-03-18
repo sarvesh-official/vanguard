@@ -66,3 +66,29 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+:root {
+  --scrollbar-thumb: #0139A6; 
+  --scrollbar-track: #0139A6; 
+}
+
+
+
+
+/* Custom Scrollbar - Light Mode */
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0139A6; 
+  scrollbar-width: 'thin';
+
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0139A6;
+  border-radius: 4px;
+   scrollbar-width: 'thin';
+}
