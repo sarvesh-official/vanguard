@@ -4,17 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import {
-  UserCircle,
-  Settings,
-  LogOut,
   MoreHorizontal,
   ChevronDown,
-  FileStack, // Better for Profiles
-  Calendar, // Better for Maintenance Window
-  AlertCircle, // Better for Event Console
-  UserCog, // For Profile
-  Settings2, // For Settings
-  LogOut as SignOut, // For Signout
+  FileStack, 
+  Calendar, 
+  UserCog, 
+  Settings2, 
+  LogOut as SignOut, 
   LogsIcon
 } from "lucide-react";
 import { useSidebar } from "@/context/SidebarContext";
